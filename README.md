@@ -2,4 +2,5 @@
 这是本人的个人博客，现在开源出来，欢迎issue！
 
 # 技术特色
-采用Spring+Struts+Hibernate整合开发
+采用Spring+Struts+Hibernate整合开发，分别加入了开源搜索框架Compass，实现了文章的全文检索，前台使用css3和h5的最新特性，加入了很多动态效果，并且后台管理系统加入了百度UEditor在线编辑器作为文章编写，并在后台管理系统加入了权限管理！
+

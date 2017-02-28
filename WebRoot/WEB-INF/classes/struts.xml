@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <constant name="struts.devMode" value="true"/>
+	<constant name="struts.action.extension" value="jspx"/>
+    <package name="bolg_Nothing" namespace="/" extends="struts-default">
+    	<!-- 配置登陆拦截器 -->
+    	<interceptors>
+    		<interceptor name="loginInterceptor" class="com.nothing.blog_tools.interceptor.LoginInterceptor"/>
+    		<!-- 配置权限拦截器栈 -->
+    		<interceptor-stack name="loginStack">
+    			<interceptor-ref name="loginInterceptor"/>
+    			<interceptor-ref name="defaultStack"/>
+    		</interceptor-stack>
+    	</interceptors>
+    	
+    	<!-- 定义默认的拦截器引用 -->
+		<default-interceptor-ref name="loginStack"/>
+    	
+    	<!-- 配置用户未登录跳转【出错跳转】 -->
+    	<global-results>
+    		<result name="user_must_login_blog">/WEB-INF/jsp/admin/login.jsp</result>
+    	</global-results>
+    	
+    	<!-- ################################用户登陆##################################### -->
+    	<!-- 跳转到登陆页面 -->
+		<action name="login_page">
+			<interceptor-ref name="defaultStack"/>
+			<result>/WEB-INF/jsp/admin/login.jsp</result>
+		</action>
+		
+		<!-- \\\异步请求\\\ 用户异步登陆 -->
+		<action name="login" class="com.nothing.blog.action.LoginAjaxAction">
+			<interceptor-ref name="defaultStack"/>
+		</action>
+		
+		<!-- 注销登录 -->
+		<action name="loginout" class="com.nothing.blog.action.LoginOutAction">
+			<!-- <interceptor-ref name="defaultStack"/>
+			<result type="chain">login_page</result> -->
+			<result>/WEB-INF/jsp/blog/article_index.jsp</result>
+		</action>
+    	
+		<!-- 配置全局的跳转方式 -->
+       <action name="*">
+       		<interceptor-ref name="defaultStack"/>
+            <result>/WEB-INF/jsp/{1}.jsp</result>
+        </action>
+    </package>
+    
+    <!-- 导入其他xml模块 -->
+    <include file="com/nothing/blog/action/user/struts_user.xml"/>
+    <include file="com/nothing/blog/action/article/struts_article.xml"/>
+    <include file="com/nothing/blog/action/remark/struts_remark.xml"/>
+    <include file="com/nothing/blog/action/menu/struts_menu.xml"/>
+    <include file="com/nothing/blog/action/link/struts_link.xml"/>
+    <include file="com/nothing/blog/action/homepage/struts_homepage.xml"/>
+    <include file="com/nothing/blog/action/z____funtool/struts_funtool.xml"/>
+</struts>

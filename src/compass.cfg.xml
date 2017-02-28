@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<compass-core-config xmlns="http://www.compass-project.org/schema/core-config"
+					 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+					 xsi:schemaLocation="http://www.compass-project.org/schema/core-config
+										 http://www.compass-project.org/schema/compass-core-config-2.2.xsd">
+
+	<compass name="default">		
+		<!-- 类似于Hibernate的连接信息，负责管理与索引库的连接 -->
+		<connection>
+			<file path="F:/blog_index" />
+		</connection>
+
+		<!-- 列出所有的SO类 -->
+		<mappings>
+			<class name="com.nothing.blog.domain.index_domain.ArticleSo" />
+		</mappings>
+	
+		<!-- 用于配置一些附加属性  -->
+		<settings>
+			<!-- 设置使用庖丁分词器 -->
+			<setting name="compass.engine.analyzer.default.type"
+				value="net.paoding.analysis.analyzer.PaodingAnalyzer"/>
+			<!-- 设置高亮器的前后标签 -->
+			<setting name="compass.engine.highlighter.default.formatter.simple.pre" value="&lt;span style='color:#b94a48;'&gt;"/>
+			<setting name="compass.engine.highlighter.default.formatter.simple.post" value="&lt;/span&gt;"/>				
+		</settings>		
+		
+	</compass>
+</compass-core-config>    

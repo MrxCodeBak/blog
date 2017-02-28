@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="bolg_Nothing_homepage" namespace="/homepage" extends="bolg_Nothing">
+		<!-- ####################################首页模块############################################## -->		
+		<!-- 跳到后台管理主页面 -->
+		<action name="manage_page" class="com.nothing.blog.action.homepage.AdminHomepageAjaxAction" method="readyData">
+			<result>/WEB-INF/jsp/admin/manage.jsp</result>
+		</action>
+		
+		<!-- \\\异步请求\\\ 后台页面点击左边【首页】菜单按钮 -->
+		<action name="ajax_load_menu_sy" class="com.nothing.blog.action.homepage.AdminHomepageAjaxAction" method="ajaxLoadMenu_SY"/>
+	</package>
+</struts>

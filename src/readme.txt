@@ -1,0 +1,1 @@
+这个项目是采用 strut2 + hibernate3 + spring3 + compass搭建而成

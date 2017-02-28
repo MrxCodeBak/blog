@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="bolg_Nothing_link" namespace="/link" extends="bolg_Nothing">
+		<!-- \\\异步请求\\\ 后台主页 - 点击【链接管理】异步加载所有链接数据 -->
+		<action name="ajax_load_link_info" class="com.nothing.blog.action.link.AdminLinkAjaxAction" method="ajaxLoadLinkInfo_LJ"/>
+		
+		<!-- \\\异步请求\\\ 后台主页 - 失去焦点便修改链接名称 -->
+		<action name="ajax_update_linkname_info" class="com.nothing.blog.action.link.AdminLinkAjaxAction" method="ajaxUpdateLinkNameInfo_LJ"/>
+		
+		<!-- \\\异步请求\\\ 后台主页 - 失去焦点便修改链接URL -->
+		<action name="ajax_update_linkurl_info" class="com.nothing.blog.action.link.AdminLinkAjaxAction" method="ajaxUpdateLinkUrlInfo_LJ"/>
+		
+		<!-- \\\异步请求\\\ 后台主页 - 添加Link -->
+		<action name="ajax_add_link_info" class="com.nothing.blog.action.link.AdminLinkAjaxAction" method="ajaxAddLinkInfo_LJ"/>
+		
+		<!-- \\\异步请求\\\ 后台主页 - 删除Link -->
+		<action name="ajax_delete_link_info" class="com.nothing.blog.action.link.AdminLinkAjaxAction" method="ajaxDeleteLinkInfo_LJ"/>
+	</package>
+</struts>

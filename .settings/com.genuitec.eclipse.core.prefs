@@ -1,0 +1,3 @@
+eclipse.preferences.version=1
+validator.Checked=WebRoot/WEB-INF/jsp/admin/manage.jsp,WebRoot/cj/ueditor1_4_3-utf8-jsp,WebRoot/WEB-INF/jsp/blog/index.jsp,WebRoot/cj/jquery-ui-1.11.4.custom/jquery-ui.min.js,WebRoot/js/jquery-1.11.1.min.js,WebRoot/cj/ueditor,WebRoot/WEB-INF/jsp/blog/article_index.jsp,WebRoot/cj/ueditor1_4_3-src
+validator.Unchecked=

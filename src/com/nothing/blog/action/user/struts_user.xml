@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="bolg_Nothing_user" namespace="/user" extends="bolg_Nothing">
+		<!-- ####################################用户模块############################################## -->
+		<!-- \\\异步请求\\\ 后台页面点击左边【用户管理】菜单按钮 -->
+		<action name="ajax_load_menu_yh" class="com.nothing.blog.action.user.AdminUserAjaxAction" method="ajaxLoadMenu_YH"/>
+		
+		<!-- \\\异步请求\\\ 用户模块：跳到修改用户页面，准备个人信息 -->
+		<action name="ajax_load_update_user_info" class="com.nothing.blog.action.user.AdminUserAjaxAction" method="ajaxLoadUpdateUserInfo_YH"/>
+		
+		<!-- \\\异步请求\\\ 用户模块：在修改用户页面异步修改个人信息 -->
+		<action name="ajax_update_user_info" class="com.nothing.blog.action.user.AdminUserAjaxAction" method="ajaxUpdateUserInfo_YH"/>
+		
+		<!-- \\\异步请求\\\ 用户模块：异步删除用户 -->
+		<action name="ajax_delete_user_info" class="com.nothing.blog.action.user.AdminUserAjaxAction" method="ajaxDeleteUserInfo_YH"/>
+		
+		<!-- \\\异步请求\\\ 用户模块：异步添加用户 -->
+		<action name="ajax_add_user_info" class="com.nothing.blog.action.user.AdminUserAjaxAction" method="ajaxAddUserInfo_YH"/>
+		
+		<!-- \\\异步请求\\\ 校验username是否存在 -->
+		<action name="ajax_jy_username_info" class="com.nothing.blog.action.user.AdminUserAjaxAction" method="ajaxJyUsernameInfo_YH"/>
+	</package>
+</struts>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:p="http://www.springframework.org/schema/p"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+	 					   http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	 					   http://www.springframework.org/schema/tx
+	 					   http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
+
+	<!-- 项目事务配置 -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager"
+		  p:sessionFactory-ref="sessionFactory"/>
+	
+	<!-- 如何让方法获取事务可以【aop切面】或【用annotation注解】，这里用注解方式开启事务 -->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+	<!-- 将Dao层注入Service层 可以用【Context组件扫描】或【一个一个的写进去】即下面的这种方式
+		 这里还需要要在BlogServiceImpl类中把引进的Dao注入进去-->
+	<bean id="blogService" class="com.nothing.blog.service.impl.BlogServiceImpl"
+		  p:articleDao-ref="articleDao"
+		  p:menuDao-ref="menuDao"
+		  p:indexArticleDao-ref="indexArticleDao"
+		  p:userDao-ref="userDao"
+		  p:remarkDao-ref="remarkDao"
+		  p:linkDao-ref="linkDao"/>
+</beans>

@@ -1,0 +1,22 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory name="foo">
+		<!-- 书库方言 -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+		<!-- 是否显示sql语句 -->
+		<property name="hibernate.show_sql">true</property>
+		<!-- 格式化sql有 -->
+		<property name="hibernate.format_sql">true</property>
+		<!-- 对数据库表的操作 -->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		
+		<!-- 需要映射的实体化类 -->
+		<mapping class="com.nothing.blog.domain.pt_domain.Article"/>		
+		<mapping class="com.nothing.blog.domain.pt_domain.Link"/>		
+		<mapping class="com.nothing.blog.domain.pt_domain.Menu"/>		
+		<mapping class="com.nothing.blog.domain.pt_domain.Remark"/>		
+		<mapping class="com.nothing.blog.domain.pt_domain.User"/>		
+	</session-factory>
+</hibernate-configuration>

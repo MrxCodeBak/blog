@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="bolg_Nothing_article" namespace="/article" extends="bolg_Nothing">
+		<!-- \\\异步请求\\\ 后台主页点击左边【文章管理】菜单异步所需加载 -->
+		<action name="ajax_load_menu_wz" class="com.nothing.blog.action.article.AdminArticleAjaxAction" method="ajaxLoadMenu_WZ"/>
+		
+		<!-- \\\异步请求\\\ 评批量删除文章（也可以单个文章删除） -->
+		<action name="ajax_deletepl_article_info" class="com.nothing.blog.action.article.AdminArticleAjaxAction" method="ajaxDeleteplArticleInfo_WZ"/>
+		
+		<!-- \\\异步请求\\\ 点击预览按钮时，根据articleId把该文章加载出来 -->
+		<action name="ajax_load_article_info" class="com.nothing.blog.action.article.AdminArticleAjaxAction" method="ajaxLoadArticleInfo_WZ"/>
+		
+		<!-- \\\异步请求\\\ 点击添加文章按钮是时，异步加载所有menu分类 -->
+		<action name="ajax_load_article_menuids" class="com.nothing.blog.action.article.AdminArticleAjaxAction" method="ajaxLoadArticleMenuIds_WZ"/>
+		
+		<!-- \\\异步请求\\\ 异步上传文章的封面 -->
+		<action name="ajax_upload_articlefaceimg" class="com.nothing.blog.action.article.AdminArticleAjaxAction" method="ajaxUploadArticleFaceImg_WZ"/>
+		
+		<!-- \\\异步请求\\\ 异步添加文章 -->
+		<action name="ajax_add_article_info" class="com.nothing.blog.action.article.AdminArticleAjaxAction" method="ajaxAddArticleInfo_WZ"/>
+		
+		<!-- \\\异步请求\\\ 根据articleId异步修改文章 -->
+		<action name="ajax_update_article_info" class="com.nothing.blog.action.article.AdminArticleAjaxAction" method="ajaxUpdateArticleInfo_WZ"/>
+		
+		<!-- #####################################前台页面所有的同步请求（全在这里）###################################################### -->
+		<!-- 点击【首页】所需数据 -->
+		<action name="qt_index" class="com.nothing.blog.action.article.QtArticleAction" method="qtIndex">
+			<interceptor-ref name="defaultStack"/>
+			<result>/WEB-INF/jsp/blog/article_index.jsp</result>
+		</action>
+		
+		<!-- 根据menuId展示相应的文章 -->
+		<action name="qt_getArticlesByMenuId" class="com.nothing.blog.action.article.QtArticleAction" method="qtGetArticlesByMenuId">
+			<interceptor-ref name="defaultStack"/>
+			<result>/WEB-INF/jsp/blog/article_fl.jsp</result>
+		</action>
+		
+		<!-- 根据articleId展示相应的文章内容 -->
+		<action name="qt_getArticleContentByArticleId" class="com.nothing.blog.action.article.QtArticleAction" method="qtGetArticleContentByArticleId">
+			<interceptor-ref name="defaultStack"/>
+			<result>/WEB-INF/jsp/blog/article_content.jsp</result>
+		</action>
+		
+		<!-- 前台异步添加评论 -->
+		<action name="qt_ajax_add_remark_info" class="com.nothing.blog.action.article.QtArticleAjaxAction" method="qtAjaxAddRemarkInfo">
+			<interceptor-ref name="defaultStack"/>
+		</action>
+		
+		<!-- 喜欢加1 -->
+		<action name="qt_ajax_add_like_info" class="com.nothing.blog.action.article.QtArticleAjaxAction" method="qtAjaxAddLikeInfo">
+			<interceptor-ref name="defaultStack"/>
+		</action>
+		
+		<!-- 回车搜索Article -->
+		<action name="qt_getSearchArticles" class="com.nothing.blog.action.article.QtArticleAction" method="qtGetSearchArticles">
+			<interceptor-ref name="defaultStack"/>
+			<result>/WEB-INF/jsp/blog/articles_search.jsp</result>
+		</action>
+	</package>
+</struts>

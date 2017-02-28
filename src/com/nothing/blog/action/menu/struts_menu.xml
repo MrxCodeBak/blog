@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="bolg_Nothing_menu" namespace="/menu" extends="bolg_Nothing">
+		<!-- \\\异步请求\\\ 后台主页 - 点击【菜单管理】异步加载所有菜单数据 -->
+		<action name="ajax_load_menu_cd" class="com.nothing.blog.action.menu.AdminMenuAjaxAction" method="ajaxLoadMenu_CD"/>
+		
+		<!-- \\\异步请求\\\ 后台主页 - 失去焦点就修改菜单名 -->
+		<action name="ajax_update_menuname_info" class="com.nothing.blog.action.menu.AdminMenuAjaxAction" method="ajaxUpdateMenuNameInfo_CD"/>
+		
+		<!-- \\\异步请求\\\ 后台主页 - 点击添加按钮 异步添加Menu -->
+		<action name="ajax_add_menu_info" class="com.nothing.blog.action.menu.AdminMenuAjaxAction" method="ajaxAddMenuInfo_CD"/>
+	</package>
+</struts>

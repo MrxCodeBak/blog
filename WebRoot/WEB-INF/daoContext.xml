@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:p="http://www.springframework.org/schema/p"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+						   http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+	<!-- dataSource -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"/>
+	
+	<!-- 将dataSource注入sessionFactory 
+		 这一步配置好之后就可以在业务层把hibernate的【事务】配置好 -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean"
+	      p:dataSource-ref="dataSource"
+	      p:configLocation="classpath:hibernate.cfg.xml"/>
+	      
+	<!-- 将sessionFactory注入Dao层
+		 这一步配置好之后再将Dao注入进Service层 -->
+	<bean id="articleDao" class="com.nothing.blog.dao.pt_dao.impl.ArticleDaoImpl" p:sessionFactory-ref="sessionFactory"/>
+	<bean id="menuDao" class="com.nothing.blog.dao.pt_dao.impl.MenuDaoImpl" p:sessionFactory-ref="sessionFactory"/>
+	<bean id="userDao" class="com.nothing.blog.dao.pt_dao.impl.UserDaoImpl" p:sessionFactory-ref="sessionFactory"/>
+	<bean id="remarkDao" class="com.nothing.blog.dao.pt_dao.impl.RemarkDaoImpl" p:sessionFactory-ref="sessionFactory"/>
+	<bean id="linkDao" class="com.nothing.blog.dao.pt_dao.impl.LinkDaoImpl" p:sessionFactory-ref="sessionFactory"/>
+</beans>

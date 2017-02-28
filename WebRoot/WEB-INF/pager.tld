@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+        					http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd" version="2.0">
+    
+  <description>Nohting pager</description>
+  <display-name>Nothing core</display-name>
+  <tlib-version>1.0</tlib-version>
+  <short-name>n</short-name>
+  <uri>/Nohting-tags</uri>
+  <!-- 定义一个标签 -->
+  <tag>
+  	<!-- 标签名 -->
+  	<name>pager</name>
+  	<!-- 定义标签处理类 -->
+  	<tag-class>com.nothing.blog_tools.page.tag.PagerTag</tag-class>
+  	<!-- 指定自定义标签为空 -->
+  	<body-content>empty</body-content>
+  	<attribute>
+  		<!-- 属性名 -->
+  		<name>pageIndex</name>
+  		<!-- 必填的属性 -->
+  		<required>true</required>
+  		<!-- 支持EL表达式 -->
+  		<fragment>true</fragment>
+  	</attribute>
+  	<attribute>
+  		<!-- 属性名 -->
+  		<name>pageSize</name>
+  		<!-- 必填的属性 -->
+  		<required>true</required>
+  		<!-- 支持EL表达式 -->
+  		<fragment>true</fragment>
+  	</attribute>
+  	<attribute>
+  		<!-- 属性名 -->
+  		<name>recordCount</name>
+  		<!-- 必填的属性 -->
+  		<required>true</required>
+  		<!-- 支持EL表达式 -->
+  		<fragment>true</fragment>
+  	</attribute>
+  		<attribute>
+  		<!-- 属性名 -->
+  		<name>submitUrl</name>
+  		<!-- 必填的属性 -->
+  		<required>true</required>
+  		<!-- 支持EL表达式 -->
+  		<fragment>true</fragment>
+  	</attribute>
+  </tag>
+ 
+</taglib>

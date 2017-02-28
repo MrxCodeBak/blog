@@ -15,7 +15,7 @@ public class TuLingRobot {
 		StringBuffer sb = new StringBuffer(); 
 		try {
 			
-			String APIKEY = "9d11d98b1f307aa6ba79cb1728d01750"; 
+			String APIKEY = "********"; 
 			String INFO = URLEncoder.encode(question, "utf-8"); 
 			String getURL = "http://www.tuling123.com/openapi/api?key=" + APIKEY + "&info=" + INFO; 
 			URL getUrl = new URL(getURL); 
